@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import ConversorMoeda from "./Components/ConversorMoeda";
+import Header from "./Components/Header";
+import Home from "./Components/Home";
 
-function App() {
+const ROUTERS = [
+  { nome: 'Conversor', path: "/Conversor", element: ConversorMoeda }
+]
+
+export default function App() {
+
+  const useTest = () => {
+    if (useLocation().pathname === '/') return true;
+    else return false;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WebSite>
+      <Header hideBack={useTest()} />
+      <MyMain>
+        <Routes>
+          <Route exact path="/" element={<Home subs={ROUTERS} />} />
+          {ROUTERS.map(e => <Route key={e.path} exact path={e.path} element={<e.element />} />)}
+        </Routes>
+      </MyMain>
+    </WebSite>
   );
 }
 
-export default App;
+const WebSite = styled.div`
+  height: 100vh;
+  width: 100%;
+`;
+
+const MyMain=styled.main`
+  height: 100%;
+  width: 100%;
+  padding-top: 60px;
+`;
