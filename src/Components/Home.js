@@ -10,5 +10,11 @@ export default function Home({subs}){
 }
 
 const Container=styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+    a{
+        margin: 5px;
+    }
 `;

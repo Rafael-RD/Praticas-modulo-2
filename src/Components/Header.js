@@ -31,9 +31,11 @@ const MyHeader=styled.header`
         background: transparent;
         text-decoration: none;
         color: black;
+        font-size: 1.1vw;
+        margin-left: 5px;
     }
 
     span{
-
+        font-size: 3vw;
     }
 `;

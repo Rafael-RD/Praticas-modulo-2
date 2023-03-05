@@ -1,11 +1,14 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import ConversorMoeda from "./Components/ConversorMoeda";
+import ECommerce from "./Components/ECommerce";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 
 const ROUTERS = [
-  { nome: 'Conversor', path: "/Conversor", element: ConversorMoeda }
+  {nome: 'Conversor', path: "/Conversor", element: ConversorMoeda},
+  {nome: 'E-commerce', path: "/E-commerce", element: ECommerce}
+
 ]
 
 export default function App() {
